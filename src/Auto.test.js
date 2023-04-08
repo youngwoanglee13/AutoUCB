@@ -21,4 +21,9 @@ describe("Jugar", () => {
         auto.girar("DDDD");
         expect(auto.getPosicionFinal()).toEqual("0,0N");
     });
+    it("Al enviar A deberia avanzar una vez", () => {
+        const auto = new Auto();
+        auto.avanzar("A");
+        expect(auto.getPosicionFinal()).toEqual("0,1N");
+    });
   });
