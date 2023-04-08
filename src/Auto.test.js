@@ -26,4 +26,9 @@ describe("Jugar", () => {
         auto.avanzar("A");
         expect(auto.getPosicionFinal()).toEqual("0,1N");
     });
+    it("Al enviar AAA deberia avanzar tres veces", () => {
+        const auto = new Auto();
+        auto.avanzar("AAA");
+        expect(auto.getPosicionFinal()).toEqual("0,3N");
+    });
   });
