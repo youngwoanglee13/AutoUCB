@@ -7,6 +7,9 @@ class Auto{
             if(cadena[i] == "I"){
                 this.orientacion = this.girarIzquierda();
             }
+            if(cadena[i] == "D"){
+                this.orientacion = "E";
+            }
         }
     }
     girarIzquierda(){
