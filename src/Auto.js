@@ -42,11 +42,24 @@ class Auto{
         }
     }
     avanzar(cadenaDeComandos){
-        this.posicionActual[1]=1;
+        for(let i = 0; i < cadenaDeComandos.length; i++){
+            if(this.orientacion == "N"){
+                this.posicionActual[1] = this.posicionActual[1] + 1;
+            }
+            if(this.orientacion == "O"){
+                this.posicionActual[0] = this.posicionActual[0] - 1;
+            }
+            if(this.orientacion == "S"){
+                this.posicionActual[1] = this.posicionActual[1] - 1;
+            }
+            if(this.orientacion == "E"){
+                this.posicionActual[0] = this.posicionActual[0] + 1;
+            }
+        }
     }
     getPosicionFinal(){
         return this.posicionActual[0]+","+this.posicionActual[1]+this.orientacion;
-    }
+    }////
 
 
 }
