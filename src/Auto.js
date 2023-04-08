@@ -1,6 +1,7 @@
 class Auto{
     constructor(){
         this.orientacion = "N";
+        this.posicionActual = [0,0];
     }
     girar(cadenaDeComandos){ 
         for(let i = 0; i < cadenaDeComandos.length; i++){
@@ -40,8 +41,11 @@ class Auto{
             return "S";
         }
     }
+    avanzar(cadenaDeComandos){
+        this.posicionActual[1]=1;
+    }
     getPosicionFinal(){
-        return "0,0"+this.orientacion;
+        return this.posicionActual[0]+","+this.posicionActual[1]+this.orientacion;
     }
 
 
