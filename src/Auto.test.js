@@ -6,4 +6,9 @@ describe("Jugar", () => {
         auto.girar("I");
         expect(auto.getPosicionFinal()).toEqual("0,0O");
     });
+    it("Al enviar IIIII deberia girar seis veces a la izquierda", () => {
+        const auto = new Auto();
+        auto.girar("IIIIII");
+        expect(auto.getPosicionFinal()).toEqual("0,0S");
+    });
   });
