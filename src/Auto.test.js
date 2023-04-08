@@ -11,4 +11,9 @@ describe("Jugar", () => {
         auto.girar("IIIIII");
         expect(auto.getPosicionFinal()).toEqual("0,0S");
     });
+    it("Al enviar D deberia girar una sola vez la derecha", () => {
+        const auto = new Auto();
+        auto.girar("D");
+        expect(auto.getPosicionFinal()).toEqual("0,0E");
+    });
   });
