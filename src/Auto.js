@@ -1,14 +1,18 @@
 class Auto{
     constructor(){
         this.orientacion = "N";
+        this.posicionActual = [0,0];
     }
-    girar(cadenaDeComandos){ 
+    mover(cadenaDeComandos){ 
         for(let i = 0; i < cadenaDeComandos.length; i++){
             if(cadenaDeComandos[i] == "I"){
                 this.orientacion = this.girarIzquierda();
             }
             if(cadenaDeComandos[i] == "D"){
                 this.orientacion = this.girarDerecha();
+            }
+            if(cadenaDeComandos[i] == "A"){
+                this.avanzar(cadenaDeComandos[i]);
             }
         }
     }
@@ -40,9 +44,23 @@ class Auto{
             return "S";
         }
     }
-    getPosicionFinal(){
-        return "0,0"+this.orientacion;
+    avanzar(cadenaDeComandos){
+            if(this.orientacion == "N"){
+                this.posicionActual[1] = this.posicionActual[1] + 1;
+            }
+            if(this.orientacion == "O"){
+                this.posicionActual[0] = this.posicionActual[0] - 1;
+            }
+            if(this.orientacion == "S"){
+                this.posicionActual[1] = this.posicionActual[1] - 1;
+            }
+            if(this.orientacion == "E"){
+                this.posicionActual[0] = this.posicionActual[0] + 1;
+            }
     }
+    getPosicionFinal(){
+        return this.posicionActual[0]+","+this.posicionActual[1]+this.orientacion;
+    }////
 
 
 }
