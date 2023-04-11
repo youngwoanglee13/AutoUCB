@@ -1,49 +1,51 @@
 class Auto{
     constructor(){
         this.orientacion = "N";
+        this.posicionActual = [0,0];
     }
-    girar(cadenaDeComandos){ 
+    mover(cadenaDeComandos){ 
         for(let i = 0; i < cadenaDeComandos.length; i++){
             if(cadenaDeComandos[i] == "I"){
-                this.orientacion = this.girarIzquierda();
+                this.orientacion = this.girar("I");
             }
             if(cadenaDeComandos[i] == "D"){
-                this.orientacion = this.girarDerecha();
+                this.orientacion = this.girar("D");
+            }
+            if(cadenaDeComandos[i] == "A"){
+                this.avanzar(cadenaDeComandos[i]);
             }
         }
     }
-    girarIzquierda(){
-        if(this.orientacion == "N"){
-            return "O";
+    girar(sentido){
+        if(this.orientacion == 'O' && sentido == "D" || this.orientacion == 'E' && sentido == "I"){
+            return "N";
         }
-        if(this.orientacion == "O"){
-            return "S";
-        }
-        if(this.orientacion == "S"){
+        if(this.orientacion == 'N' && sentido == "D" || this.orientacion == 'S' && sentido == "I"){
             return "E";
         }
-        if(this.orientacion == "E"){
-            return "N";
+        if(this.orientacion == 'E' && sentido == "D" || this.orientacion == 'O' && sentido == "I"){
+            return "S";
+        }
+        if(this.orientacion == 'S' && sentido == "D" || this.orientacion == 'N' && sentido == "I"){
+            return "O";
         }
     }
-    girarDerecha(){
-        if(this.orientacion == "N"){
-            return "E";
-        }
-        if(this.orientacion == "O"){
-            return "N";
-        }
-        if(this.orientacion == "S"){
-            return "O";
-        }
-        if(this.orientacion == "E"){
-            return "S";
-        }
+    avanzar(cadenaDeComandos){
+            if(this.orientacion == "N"){
+                this.posicionActual[1] = this.posicionActual[1] + 1;
+            }
+            if(this.orientacion == "O"){
+                this.posicionActual[0] = this.posicionActual[0] - 1;
+            }
+            if(this.orientacion == "S"){
+                this.posicionActual[1] = this.posicionActual[1] - 1;
+            }
+            if(this.orientacion == "E"){
+                this.posicionActual[0] = this.posicionActual[0] + 1;
+            }
     }
     getPosicionFinal(){
-        return "0,0"+this.orientacion;
+        return this.posicionActual[0]+","+this.posicionActual[1]+this.orientacion;
     }
-
-
 }
 export default Auto;
