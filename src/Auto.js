@@ -1,8 +1,8 @@
 class Auto{
-    constructor(){
+    constructor() {
         this.orientacion = "N";
-        this.posicionActual = [0,0];
-    }
+        this.posicionActual = [0, 0];
+      }
     mover(cadenaDeComandos){ 
         for(let i = 0; i < cadenaDeComandos.length; i++){
             if(cadenaDeComandos[i] == "I"){
@@ -45,7 +45,8 @@ class Auto{
             }
     }
     getPosicionFinal(){
-        return this.posicionActual[0]+","+this.posicionActual[1]+this.orientacion;
+        return this.posicionActual[0] + "," + this.posicionActual[1] + this.orientacion;
     }
+  
 }
 export default Auto;

@@ -31,4 +31,10 @@ describe("Jugar", () => {
         auto.mover("AAA");
         expect(auto.getPosicionFinal()).toEqual("0,3N");
     });
+    it("deberia poder elejir la posicion inicial", () => {
+        const auto = new Auto();
+        auto.setPosicionInicial(1,2,"N");
+        expect(auto.getPosicionFinal()).toEqual("1,2N");
+    });
+
   });
