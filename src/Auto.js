@@ -47,6 +47,10 @@ class Auto{
     getPosicionFinal(){
         return this.posicionActual[0] + "," + this.posicionActual[1] + this.orientacion;
     }
-  
+    setPosicionInicial(posx, posy,posorientacion) {
+        this.posicionActual[0] = posx;
+        this.posicionActual[1] = posy;
+        this.orientacion=posorientacion;
+    }
 }
 export default Auto;
