@@ -2,7 +2,9 @@ class Auto{
     constructor() {
         this.orientacion = "N";
         this.posicionActual = [0, 0];
-      }
+        this.ancho = 0;
+        this.alto = 0;
+    }
     mover(cadenaDeComandos){ 
         for(let i = 0; i < cadenaDeComandos.length; i++){
             if(cadenaDeComandos[i] == "I"){
@@ -51,6 +53,13 @@ class Auto{
         this.posicionActual[0] = posx;
         this.posicionActual[1] = posy;
         this.orientacion=posorientacion;
+    }
+    setDefinirTablero(tamAncho,tamAlto) {
+        this.ancho = tamAncho;
+        this.alto = tamAlto;
+    }
+    getTablero(){
+        return this.ancho + "," + this.alto;
     }
 }
 export default Auto;
