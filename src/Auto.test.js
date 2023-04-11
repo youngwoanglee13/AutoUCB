@@ -36,5 +36,9 @@ describe("Jugar", () => {
         auto.setPosicionInicial(1,2,"N");
         expect(auto.getPosicionFinal()).toEqual("1,2N");
     });
-
+    it("DEBERIA PODER DEFINIR EL TAMAÑO DEL TABLERO", () => {
+        const auto = new Auto();
+        auto.setDefinirTablero(20,20);
+        expect(auto.getTablero()).toEqual("20,20");
+    });
   });
