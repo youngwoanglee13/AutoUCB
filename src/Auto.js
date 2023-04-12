@@ -2,6 +2,7 @@ class Auto{
     constructor() {
         this.orientacion = "N";
         this.posicionActual = [0,0];
+        this.posicionInicial = "0,0N";
         this.ancho = 0;
         this.alto = 0;
     }
@@ -49,9 +50,12 @@ class Auto{
     getPosicionFinal(){
         return this.posicionActual[0]+","+this.posicionActual[1]+this.orientacion;
     }
+    getPosicionInicial(){
+        return this.posicionInicial;
+    }
     setPosicionInicial(posx, posy,posorientacion) {
-        this.posicionActual[0] = posx;
-        this.posicionActual[1] = posy;
+        this.posicionInicial=posx+","+posy+posorientacion;
+        this.posicionActual = [posx,posy];
         this.orientacion=posorientacion;
     }
     setDefinirTablero(tamAncho,tamAlto) {
