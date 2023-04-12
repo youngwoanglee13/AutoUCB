@@ -5,6 +5,7 @@ class Auto{
         this.posicionInicial = "0,0N";
         this.ancho = 0;
         this.alto = 0;
+        this.movimientosEjecutados ="";
     }
     mover(cadenaDeComandos){ 
         for(let i = 0; i < cadenaDeComandos.length; i++){
@@ -17,7 +18,12 @@ class Auto{
             if(cadenaDeComandos[i] == "A"){
                 this.avanzar(cadenaDeComandos[i]);
             }
+            this.movimientosEjecutados=this.movimientosEjecutados+cadenaDeComandos[i];
         }
+    }
+    getMovimientosEjecutados()
+    {
+        return this.movimientosEjecutados;
     }
     girar(sentido){
         if(this.orientacion == 'O' && sentido == "D" || this.orientacion == 'E' && sentido == "I"){
