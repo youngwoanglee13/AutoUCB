@@ -66,9 +66,12 @@ class Auto{
                     this.posicionActual[1] = this.posicionActual[1] + 1;
                 }
             }
-            if(this.orientacion == "O" && this.posicionActual[0] > 0){
-                this.posicionActual[0] = this.posicionActual[0] - 1;
-                
+            if(this.orientacion == "O"){
+                if(this.posicionActual[0] == 0){
+                    this.posicionActual[0] = this.ancho;
+                }else{
+                    this.posicionActual[0] = this.posicionActual[0] - 1;
+                }
             }
             if(this.orientacion == "S"){
                 if(this.posicionActual[1] == 0){
