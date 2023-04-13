@@ -3,10 +3,25 @@ class Auto{
         this.orientacion = "N";
         this.posicionActual = [0,0];
         this.posicionInicial = "0,0N";
-        this.ancho = 0;
-        this.alto = 0;
+        this.ancho = 100;
+        this.alto = 100;
         this.movimientosEjecutados ="";
     }
+    setComandos(cadenaDeComandos){
+        cadenaDeComandos = cadenaDeComandos.split("/");
+        if(cadenaDeComandos.length == 1){
+            this.mover(cadenaDeComandos[0]);
+        }else{
+            this.movimientosEjecutados ="";
+            var tablero = cadenaDeComandos[0].split(",");
+            var posicionInicial = cadenaDeComandos[1].substring(0,cadenaDeComandos[1].length-1).split(",");
+            var orientacion = cadenaDeComandos[1][cadenaDeComandos[1].length-1].toUpperCase();
+            this.setDefinirTablero(tablero[0],tablero[1]);
+            this.setPosicionInicial(parseInt(posicionInicial[0]),parseInt(posicionInicial[1]),orientacion);
+            this.mover(cadenaDeComandos[2].toUpperCase());
+        }
+        
+    }
     mover(cadenaDeComandos){ 
         for(let i = 0; i < cadenaDeComandos.length; i++){
             if(cadenaDeComandos[i] == "I"){
@@ -40,16 +55,16 @@ class Auto{
         }
     }
     avanzar(cadenaDeComandos){
-            if(this.orientacion == "N"){
+            if(this.orientacion == "N" && this.posicionActual[1] < this.alto){
                 this.posicionActual[1] = this.posicionActual[1] + 1;
             }
-            if(this.orientacion == "O"){
+            if(this.orientacion == "O" && this.posicionActual[0] > 0){
                 this.posicionActual[0] = this.posicionActual[0] - 1;
             }
-            if(this.orientacion == "S"){
+            if(this.orientacion == "S" && this.posicionActual[1] > 0){
                 this.posicionActual[1] = this.posicionActual[1] - 1;
             }
-            if(this.orientacion == "E"){
+            if(this.orientacion == "E" && this.posicionActual[0] < this.ancho){
                 this.posicionActual[0] = this.posicionActual[0] + 1;
             }
     }
@@ -72,4 +87,4 @@ class Auto{
         return this.ancho + "," + this.alto;
     }
 }
-export default Auto;
+export default Auto;
