@@ -64,4 +64,10 @@ it("AL AVANZAR FUERA DEL TABLERO DEBERIA VOLVER A SU EXTREMO CONTRARIO", () => {
     auto.setComandos("5,5/0,0N/AAAAAAA");
     expect(auto.getPosicionFinal()).toEqual("0,1N");
     });
+it("AL AVANZAR FUERA DEL TABLERO POR EL LADO SUR DEBERIA VOLVER A SU EXTREMO CONTRARIO", () => {
+    const auto = new Auto();
+    auto.setDefinirTablero(2,2);
+    auto.setComandos("5,5/0,0S/AAAAAAA");
+    expect(auto.getPosicionFinal()).toEqual("0,5S");
+    });
   });

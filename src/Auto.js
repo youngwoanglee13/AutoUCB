@@ -70,8 +70,12 @@ class Auto{
                 this.posicionActual[0] = this.posicionActual[0] - 1;
                 
             }
-            if(this.orientacion == "S" && this.posicionActual[1] > 0){
-                this.posicionActual[1] = this.posicionActual[1] - 1;
+            if(this.orientacion == "S"){
+                if(this.posicionActual[1] == 0){
+                    this.posicionActual[1] = this.alto;
+                }else{
+                    this.posicionActual[1] = this.posicionActual[1] - 1;
+                }
             }
             if(this.orientacion == "E" && this.posicionActual[0] < this.ancho){
                 this.posicionActual[0] = this.posicionActual[0] + 1;
