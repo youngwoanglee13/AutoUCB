@@ -7,6 +7,21 @@ class Auto{
         this.alto = 100;
         this.movimientosEjecutados ="";
     }
+    setComandos(cadenaDeComandos){
+        cadenaDeComandos = cadenaDeComandos.split("/");
+        if(cadenaDeComandos.length == 1){
+            this.mover(cadenaDeComandos[0]);
+        }else{
+            this.movimientosEjecutados ="";
+            var tablero = cadenaDeComandos[0].split(",");
+            var posicionInicial = cadenaDeComandos[1].substring(0,cadenaDeComandos[1].length-1).split(",");
+            var orientacion = cadenaDeComandos[1][cadenaDeComandos[1].length-1].toUpperCase();
+            this.setDefinirTablero(tablero[0],tablero[1]);
+            this.setPosicionInicial(parseInt(posicionInicial[0]),parseInt(posicionInicial[1]),orientacion);
+            this.mover(cadenaDeComandos[2].toUpperCase());
+        }
+        
+    }
     mover(cadenaDeComandos){ 
         for(let i = 0; i < cadenaDeComandos.length; i++){
             if(cadenaDeComandos[i] == "I"){

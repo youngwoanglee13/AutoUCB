@@ -8,7 +8,7 @@ const tablero = document.querySelector("#tablero");
 const comandosEjecutados = document.querySelector("#comandosEjecutados");
 let auto = new Auto();
 boton.addEventListener("click", () => {
-    auto.mover(comandos.value);
+    auto.setComandos(comandos.value);
     posicionFinal.innerHTML = auto.getPosicionFinal();
     posicionInicial.innerHTML = auto.getPosicionInicial();
     tablero.innerHTML = auto.getTablero();
