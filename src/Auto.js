@@ -34,7 +34,8 @@ class Auto{
                 this.avanzar(1);
             }
             if(cadenaDeComandos[i] == "J"){
-                this.avanzar(2);
+                this.avanzar(1);
+                this.avanzar(1);
             }
             this.movimientosEjecutados=this.movimientosEjecutados+cadenaDeComandos[i];
         }
@@ -57,18 +58,23 @@ class Auto{
             return "O";
         }
     }
-    avanzar(casillas){
-            if(this.orientacion == "N" && this.posicionActual[1] < this.alto){
-                this.posicionActual[1] = this.posicionActual[1] + casillas;
+    avanzar(){
+            if(this.orientacion == "N" ){
+                if(this.posicionActual[1] == this.alto){
+                    this.posicionActual[1] = 0;
+                }else{
+                    this.posicionActual[1] = this.posicionActual[1] + 1;
+                }
             }
             if(this.orientacion == "O" && this.posicionActual[0] > 0){
-                this.posicionActual[0] = this.posicionActual[0] - casillas;
+                this.posicionActual[0] = this.posicionActual[0] - 1;
+                
             }
             if(this.orientacion == "S" && this.posicionActual[1] > 0){
-                this.posicionActual[1] = this.posicionActual[1] - casillas;
+                this.posicionActual[1] = this.posicionActual[1] - 1;
             }
             if(this.orientacion == "E" && this.posicionActual[0] < this.ancho){
-                this.posicionActual[0] = this.posicionActual[0] + casillas;
+                this.posicionActual[0] = this.posicionActual[0] + 1;
             }
     }
     getPosicionFinal(){
