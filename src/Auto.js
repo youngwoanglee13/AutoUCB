@@ -32,6 +32,9 @@ class Auto{
             if(cadenaDeComandos[i] == "A"){
                 this.avanzar(cadenaDeComandos[i]);
             }
+            if(cadenaDeComandos[i] == "J"){
+                this.Jump(cadenaDeComandos[i]);
+            }
             this.movimientosEjecutados=this.movimientosEjecutados+cadenaDeComandos[i];
         }
     }
@@ -67,6 +70,20 @@ class Auto{
                 this.posicionActual[0] = this.posicionActual[0] + 1;
             }
     }
+    Jump(cadenaDeComandos){
+        if(this.orientacion == "N" && this.posicionActual[1] < this.alto){
+            this.posicionActual[1] = this.posicionActual[1] + 2;
+        }
+        if(this.orientacion == "O" && this.posicionActual[0] > 0){
+            this.posicionActual[0] = this.posicionActual[0] - 2;
+        }
+        if(this.orientacion == "S" && this.posicionActual[1] > 0){
+            this.posicionActual[1] = this.posicionActual[1] - 2;
+        }
+        if(this.orientacion == "E" && this.posicionActual[0] < this.ancho){
+            this.posicionActual[0] = this.posicionActual[0] + 2;
+        }
+}
     getPosicionFinal(){
         return this.posicionActual[0]+","+this.posicionActual[1]+this.orientacion;
     }
