@@ -63,5 +63,11 @@ describe("Jugar", () => {
         auto.mover("JJJ");
         expect(auto.getPosicionFinal()).toEqual("0,6N");
     });
+    it("Al enviar 10,10/2,2N/AJ deberia tomar todos los comandosincluido el jump ", () => {
+        const auto = new Auto();
+        auto.setDefinirTablero(2,2);
+        auto.setComandos("10,10/1,1N/AJ");
+        expect(auto.getPosicionFinal()).toEqual("1,4N");
+    });
 
   });
