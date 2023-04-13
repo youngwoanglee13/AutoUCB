@@ -9,8 +9,8 @@ const comandosEjecutados = document.querySelector("#comandosEjecutados");
 let auto = new Auto();
 boton.addEventListener("click", () => {
     auto.setComandos(comandos.value);
-    posicionFinal.innerHTML = auto.getPosicionFinal();
-    posicionInicial.innerHTML = auto.getPosicionInicial();
-    tablero.innerHTML = auto.getTablero();
-    comandosEjecutados.innerHTML = auto.getMovimientosEjecutados();
+    posicionFinal.innerHTML += auto.getPosicionFinal();
+    posicionInicial.innerHTML += auto.getPosicionInicial();
+    tablero.innerHTML += auto.getTablero();
+    comandosEjecutados.innerHTML += auto.getMovimientosEjecutados();
 });
