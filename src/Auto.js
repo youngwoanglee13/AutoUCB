@@ -10,7 +10,7 @@ class Auto{
     setComandos(cadenaDeComandos){
         cadenaDeComandos = cadenaDeComandos.split("/");
         if(cadenaDeComandos.length == 1){
-            this.mover(cadenaDeComandos[0]);
+            this.mover(cadenaDeComandos[2].toUpperCase());
         }else{
             this.movimientosEjecutados ="";
             var tablero = cadenaDeComandos[0].split(",");
