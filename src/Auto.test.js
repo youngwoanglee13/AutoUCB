@@ -47,4 +47,10 @@ describe("Jugar", () => {
         auto.mover("AAAAAA");
         expect(auto.getPosicionFinal()).toEqual("0,2N");
     });
+    it("Al enviar 10,10/2,2N/AAA deberia tomar todos los comandos ", () => {
+    const auto = new Auto();
+    auto.setDefinirTablero(2,2);
+    auto.setComandos("10,10/2,2N/AAA");
+    expect(auto.getPosicionFinal()).toEqual("2,5N");
+    });
   });
