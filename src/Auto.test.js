@@ -53,4 +53,9 @@ describe("Jugar", () => {
     auto.setComandos("10,10/1,1N/AADAADADAAAAAA");
     expect(auto.getPosicionFinal()).toEqual("0,2O");
     });
+    it("Al enviar   J deberia hacer jump una vez", () => {
+    const auto = new Auto();
+    auto.mover("J");
+    expect(auto.getPosicionFinal()).toEqual("0,2N");
+    });
   });
