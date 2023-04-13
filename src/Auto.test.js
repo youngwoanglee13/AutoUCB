@@ -58,4 +58,10 @@ describe("Jugar", () => {
     auto.mover("J");
     expect(auto.getPosicionFinal()).toEqual("0,2N");
     });
+    it("Al enviar JJJ deberia hacer jump  tres veces", () => {
+        const auto = new Auto();
+        auto.mover("JJJ");
+        expect(auto.getPosicionFinal()).toEqual("0,6N");
+    });
+
   });
