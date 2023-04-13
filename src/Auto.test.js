@@ -58,4 +58,10 @@ describe("Jugar", () => {
     auto.setComandos("J");
     expect(auto.getPosicionFinal()).toEqual("0,2N");
     });
+it("AL AVANZAR FUERA DEL TABLERO DEBERIA VOLVER A SU EXTREMO CONTRARIO", () => {
+    const auto = new Auto();
+    auto.setDefinirTablero(2,2);
+    auto.setComandos("5,5/0,0N/AAAAAA");
+    expect(auto.getPosicionFinal()).toEqual("0,0O");
+    });
   });
