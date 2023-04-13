@@ -31,10 +31,10 @@ class Auto{
                 this.orientacion = this.girar("D");
             }
             if(cadenaDeComandos[i] == "A"){
-                this.avanzar(cadenaDeComandos[i]);
+                this.avanzar(1);
             }
             if(cadenaDeComandos[i] == "J"){
-                this.avanzarDoble(cadenaDeComandos[i]);
+                this.avanzar(2);
             }
             this.movimientosEjecutados=this.movimientosEjecutados+cadenaDeComandos[i];
         }
@@ -57,33 +57,19 @@ class Auto{
             return "O";
         }
     }
-    avanzar(cadenaDeComandos){
+    avanzar(casillas){
             if(this.orientacion == "N" && this.posicionActual[1] < this.alto){
-                this.posicionActual[1] = this.posicionActual[1] + 1;
+                this.posicionActual[1] = this.posicionActual[1] + casillas;
             }
             if(this.orientacion == "O" && this.posicionActual[0] > 0){
-                this.posicionActual[0] = this.posicionActual[0] - 1;
+                this.posicionActual[0] = this.posicionActual[0] - casillas;
             }
             if(this.orientacion == "S" && this.posicionActual[1] > 0){
-                this.posicionActual[1] = this.posicionActual[1] - 1;
+                this.posicionActual[1] = this.posicionActual[1] - casillas;
             }
             if(this.orientacion == "E" && this.posicionActual[0] < this.ancho){
-                this.posicionActual[0] = this.posicionActual[0] + 1;
+                this.posicionActual[0] = this.posicionActual[0] + casillas;
             }
-    }
-    avanzarDoble(){
-        if(this.orientacion == "N" && this.posicionActual[1] < this.alto){
-            this.posicionActual[1] = this.posicionActual[1] + 2;
-        }
-        if(this.orientacion == "O" && this.posicionActual[0] > 0){
-            this.posicionActual[0] = this.posicionActual[0] - 2;
-        }
-        if(this.orientacion == "S" && this.posicionActual[1] > 0){
-            this.posicionActual[1] = this.posicionActual[1] - 2;
-        }
-        if(this.orientacion == "E" && this.posicionActual[0] < this.ancho){
-            this.posicionActual[0] = this.posicionActual[0] + 2;
-        } 
     }
     getPosicionFinal(){
         return this.posicionActual[0]+","+this.posicionActual[1]+this.orientacion;
