@@ -2,8 +2,10 @@ class Auto{
     constructor() {
         this.orientacion = "N";
         this.posicionActual = [0,0];
+        this.posicionInicial = "0,0N";
         this.ancho = 0;
         this.alto = 0;
+        this.movimientosEjecutados ="";
     }
     mover(cadenaDeComandos){ 
         for(let i = 0; i < cadenaDeComandos.length; i++){
@@ -16,7 +18,12 @@ class Auto{
             if(cadenaDeComandos[i] == "A"){
                 this.avanzar(cadenaDeComandos[i]);
             }
+            this.movimientosEjecutados=this.movimientosEjecutados+cadenaDeComandos[i];
         }
+    }
+    getMovimientosEjecutados()
+    {
+        return this.movimientosEjecutados;
     }
     girar(sentido){
         if(this.orientacion == 'O' && sentido == "D" || this.orientacion == 'E' && sentido == "I"){
@@ -49,9 +56,12 @@ class Auto{
     getPosicionFinal(){
         return this.posicionActual[0]+","+this.posicionActual[1]+this.orientacion;
     }
+    getPosicionInicial(){
+        return this.posicionInicial;
+    }
     setPosicionInicial(posx, posy,posorientacion) {
-        this.posicionActual[0] = posx;
-        this.posicionActual[1] = posy;
+        this.posicionInicial=posx+","+posy+posorientacion;
+        this.posicionActual = [posx,posy];
         this.orientacion=posorientacion;
     }
     setDefinirTablero(tamAncho,tamAlto) {
