@@ -53,4 +53,9 @@ describe("Jugar", () => {
     auto.setComandos("10,10/1,1N/AADAADADAAAAAA");
     expect(auto.getPosicionFinal()).toEqual("0,2O");
     });
+    it("Deberia avanzar 2 casillas al enviar J", () => {
+    const auto = new Auto();
+    auto.setComandos("J");
+    expect(auto.getPosicionFinal()).toEqual("0,2N");
+    });
   });
