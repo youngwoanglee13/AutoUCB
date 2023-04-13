@@ -3,8 +3,8 @@ class Auto{
         this.orientacion = "N";
         this.posicionActual = [0,0];
         this.posicionInicial = "0,0N";
-        this.ancho = 0;
-        this.alto = 0;
+        this.ancho = 100;
+        this.alto = 100;
         this.movimientosEjecutados ="";
     }
     mover(cadenaDeComandos){ 
@@ -40,16 +40,16 @@ class Auto{
         }
     }
     avanzar(cadenaDeComandos){
-            if(this.orientacion == "N"){
+            if(this.orientacion == "N" && this.posicionActual[1] < this.alto){
                 this.posicionActual[1] = this.posicionActual[1] + 1;
             }
-            if(this.orientacion == "O"){
+            if(this.orientacion == "O" && this.posicionActual[0] > 0){
                 this.posicionActual[0] = this.posicionActual[0] - 1;
             }
-            if(this.orientacion == "S"){
+            if(this.orientacion == "S" && this.posicionActual[1] > 0){
                 this.posicionActual[1] = this.posicionActual[1] - 1;
             }
-            if(this.orientacion == "E"){
+            if(this.orientacion == "E" && this.posicionActual[0] < this.ancho){
                 this.posicionActual[0] = this.posicionActual[0] + 1;
             }
     }

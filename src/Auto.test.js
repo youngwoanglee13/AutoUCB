@@ -44,7 +44,7 @@ describe("Jugar", () => {
     it("Al hacer un movimiento fuera del tablero no se toma en cuanta", () => {
         const auto = new Auto();
         auto.setDefinirTablero(2,2);
-        auto.mover("AAA");
+        auto.mover("AAAAAA");
         expect(auto.getPosicionFinal()).toEqual("0,2N");
     });
   });
